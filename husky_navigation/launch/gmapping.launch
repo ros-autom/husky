@@ -35,8 +35,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
       map_update_interval: 0.5 # Publish new map
 
-      maxUrange: 5.5 # Should be just less than sensor range
-      maxRange: 6.1 # Should be just greater than sensor range
+      maxUrange: 20 # Should be just less than sensor range increased from 5.5
+      maxRange: 20 # Should be just greater than sensor range increased from 6.1
       particles: 100 # Increased from 80
 
       # Update frequencies
