@@ -1,0 +1,729 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="vrc_task_1">
+    <!-- place user camera -->
+    <gui>
+      <!--<camera name="user_camera">
+        <pose>-21.660200 -11.942800 14.053900 0.000000 0.443643 0.352194</pose>
+      </camera>-->
+      
+      <camera name="user_camera">
+        <pose>-30 -16 12 0.000000 0.21 0.352194</pose>
+      </camera>
+      
+      <!--
+      <camera name="map_camera">
+        <pose>0 0 400 0 1.5707 0</pose>-->
+        <!-- The ortho feature has been added to Gazebo on april 2015
+             it is not yet present on ROS' Gazebo version.
+        <projection_type>orthographic</projection_type>-->
+      <!--</camera>-->
+      
+    </gui>
+    <scene>
+      <ambient>0.4 0.4 0.4 1.0</ambient>
+      <grid>false</grid>
+      <sky>
+        <clouds>
+          <speed>10</speed>
+        </clouds>
+      </sky>
+    </scene>
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <use_dynamic_moi_rescaling>true</use_dynamic_moi_rescaling>
+          <type>quick</type>
+          <iters>50</iters>
+	  <!-- Must be 1.0 ! Not any above number -->
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <max_step_size>0.0025</max_step_size>
+    </physics>
+
+    <!-- Light Source -->
+    <light type="directional" name="sun">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.9 0.9 0.9 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.2 -0.9</direction>
+    </light>
+    
+    <!--
+    <light type="point" name="light_bulb">
+      <cast_shadows>false</cast_shadows>
+      <pose>-14 0 5 0 0 0</pose>
+      <diffuse>0.3 0.3 0.3 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>80</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    -->
+    
+    <!--
+    <light type="spot" name="lamp_post_light">
+      <cast_shadows>true</cast_shadows>
+      <pose>-3.01 -1.7 3.01   0.22 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0 0.3 -0.9</direction>
+      <spot>
+        <inner_angle>0.6</inner_angle>
+        <outer_angle>1.0</outer_angle>
+        <falloff>1.0</falloff>
+      </spot> 
+    </light>
+    -->
+    
+    
+    <include>
+      <uri>model://grass_plane_small</uri>
+    </include>
+    
+    <!--
+    <include>
+      <uri>model://grass_plane</uri>
+    </include>
+    
+    
+    <include>
+      <uri>model://ground_plane_small</uri>
+    </include>
+    -->
+    
+    <include>
+      <uri>model://playfield_heightmap_1</uri>
+    </include>
+
+	  <!-- Trees -->
+    <include>
+      <name>pine_tree_1</name>
+      <uri>model://pine_tree</uri>
+      <pose>9 -16.23 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_2</name>
+      <uri>model://pine_tree</uri>
+      <pose>-16.599 -13.973 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_3</name>
+      <uri>model://pine_tree</uri>
+      <pose>-20 -4.28 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_4</name>
+      <uri>model://pine_tree</uri>
+      <pose>-17 2 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_5</name>
+      <uri>model://pine_tree</uri>
+      <pose>-20 7.27 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_6</name>
+      <uri>model://pine_tree</uri>
+      <pose>19 13 1.58   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_7</name>
+      <uri>model://pine_tree</uri>
+      <pose>12.24 -0.15 0   0 0 0</pose>
+    </include>
+
+ <include>
+      <name>pine_tree_8</name>
+      <uri>model://pine_tree</uri>
+      <pose>16 -11.5 0   0 0 0</pose>
+    </include>
+
+
+ <!--Small_Trees>-->
+<include>
+      <name>small_tree_1</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -12 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_2</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -11 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_3</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -10 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_4</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -9 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_5</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -8 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_6</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -7 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_7</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -6 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_8</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -5 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_9</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -4 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_10</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -3 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_11</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -2 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_12</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 -1 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_13</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 0 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_14</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 1 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_15</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 2 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_16</name>
+      <uri>model://pine_tree</uri>
+      <pose>-8 3 -4.5   0 0 0</pose>
+    </include>
+
+
+<!--small_trees_2-->>
+
+<include>
+      <name>small_tree_1a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -12 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_2a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -11 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_3a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -10 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_4a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -9 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_5a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -8 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_6a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -7 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_7a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -6 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_8a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -5 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_9a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -4 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_10a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -3 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_11a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -2 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_12a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 -1 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_13a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 0 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_14a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 1 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_15a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 2 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_16a</name>
+      <uri>model://pine_tree</uri>
+      <pose>-4 3 -4.5   0 0 0</pose>
+    </include>
+
+<!--small_trees_2-->
+<include>
+      <name>small_tree_1b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -12 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_2b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -11 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_3b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -10 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_4b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -9 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_5b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -8 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_6b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -7 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_7b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -6 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_8b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -5 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_9b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -4 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_10b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -3 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_11b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -2 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_12b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 -1 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_13b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 0 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_14b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 1 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_15b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 2 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_16b</name>
+      <uri>model://pine_tree</uri>
+      <pose>0 3 -4.5   0 0 0</pose>
+    </include>
+
+
+<!--small_trees_3-->
+<include>
+      <name>small_tree_1c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -12 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_2c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -11 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_3c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -10 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_4c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -9 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_5c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -8 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_6c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -7 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_7c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -6 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_8c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -5 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_9c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -4 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_10c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -3 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_11c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -2 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_12c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 -1 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_13c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 0 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_14c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 1 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_15c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 2 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_16c</name>
+      <uri>model://pine_tree</uri>
+      <pose>4 3 -4.5   0 0 0</pose>
+    </include>
+<!--small-trees_4-->
+
+<include>
+      <name>small_tree_1d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -12 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_2d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -11 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_3d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -10 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_4d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -9 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_5d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -8 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_6d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -7 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_7d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -6 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_8d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -5 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_9d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -4 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_10d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -3 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_11d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -2 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_12d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 -1 -4.5   0 0 0</pose>
+    </include>
+
+
+<include>
+      <name>small_tree_13d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 0 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_14d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 1 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_15d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 2 -4.5   0 0 0</pose>
+    </include>
+
+<include>
+      <name>small_tree_16d</name>
+      <uri>model://pine_tree</uri>
+      <pose>8 3 -4.5   0 0 0</pose>
+    </include>
+
+
+<!--ROCKS-->
+ <include>
+      <name>rock1</name>
+      <uri>model://rock</uri>
+      <pose>-14.9947 -6.75851 0  0 0 0</pose>
+    </include>
+
+<include>
+      <name>rock2</name>
+      <uri>model://rock</uri>
+      <pose>-8.22392 8.23237 0	0 0 0</pose>
+    </include>
+
+<include>
+      <name>rock3</name>
+      <uri>model://rock</uri>
+      <pose>5.58434 -15.6852 0	0 0 0</pose>
+    </include>
+
+<include>
+      <name>rock4</name>
+      <uri>model://rock</uri>
+      <pose>-0.782785 -16.8448 0  0 0 0</pose>
+    </include>
+
+<include>
+      <name>rock5</name>
+      <uri>model://rock</uri>
+      <pose>5.5843 -15.6852 0  0 0 0</pose>
+    </include>
+
+
+
+
+
+ </world>
+</sdf>
