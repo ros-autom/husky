@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="plant">
+    <pose>0 0 0  0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <inertial>
+        <mass>40.0</mass>
+        <inertia>
+          <ixx>0.04173489</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.06181</iyy>
+          <iyz>0</iyz>
+          <izz>0.08487402</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+	 <mesh>
+          <uri>model://plant/meshes/plant.dae</uri>
+	 </mesh>        
+	</geometry>
+        <pose>1.25 1.25 2.5  0 0 0</pose>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://plant/meshes/plant.dae</uri>
+          </mesh>
+	      </geometry>
+        <<material>
+          <ambient>1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
