@@ -209,7 +209,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/scan</topicName>
+        <topicName>$(arg robot_namespace)/scan</topicName>
         <frameName>hokuyo_link</frameName>
       </plugin>
     </sensor>
