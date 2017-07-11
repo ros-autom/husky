@@ -1,0 +1,7 @@
+image: /home/gra/ros/mybot_ws/src/mvrobot_navigation/maps/farm_map.pgm
+resolution: 0.050000
+origin: [-36.000000, -31.200000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
