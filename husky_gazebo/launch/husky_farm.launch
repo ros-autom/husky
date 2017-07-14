@@ -29,8 +29,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <arg name="kinect_enabled" default="false"/>
 
+  <arg name="slam_laser_enabled" default="true"/>
+
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find husky_gazebo)/worlds/farm2.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
@@ -41,8 +43,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <include file="$(find husky_gazebo)/launch/spawn_husky.launch">
     <arg name="laser_enabled" value="$(arg laser_enabled)"/>
-
     <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+    <arg name="slam_laser_enabled" value="$(arg slam_laser_enabled)"/>
+
   </include>
 
 </launch>

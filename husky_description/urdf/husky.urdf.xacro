@@ -25,21 +25,23 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 -->
 <robot name="husky" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="laser_enabled" default="true" />
+  <xacro:arg name="laser_enabled" default="true"/>
   <xacro:arg name="tfpre" default="huksy_tf"/>
-  <xacro:arg name="laser_xyz" default="$(optenv HUSKY_LMS1XX_XYZ 0.2206 0.0 0.00635)" />
-  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0.0 0.0)" />
+  <xacro:arg name="laser_xyz" default="$(optenv HUSKY_LMS1XX_XYZ 0.2206 0.0 0.00635)"/>
+  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0.0 0.0)"/>
 
-  <xacro:arg name="kinect_enabled" default="false" />
-  <xacro:arg name="kinect_xyz" default="$(optenv HUSKY_KINECT_XYZ 0 0 0)" />
-  <xacro:arg name="kinect_rpy" default="$(optenv HUSKY_KINECT_RPY 0 0.18 3.14)" />
+  <xacro:arg name="kinect_enabled" default="false"/>
+  <xacro:arg name="kinect_xyz" default="$(optenv HUSKY_KINECT_XYZ 0 0 0)"/>
+  <xacro:arg name="kinect_rpy" default="$(optenv HUSKY_KINECT_RPY 0 0.18 3.14)"/>
 
-  <xacro:arg name="robot_namespace" default="/" />
+  <xacro:arg name="slam_laser_enabled" default="true"/>
+
+  <xacro:arg name="robot_namespace" default="/"/>
   <!--xacro:arg name="urdf_extras" default="empty.urdf" /-->
 
   <!-- Included URDF/XACRO Files -->
-  <xacro:include filename="$(find husky_description)/urdf/decorations.urdf.xacro" />
-  <xacro:include filename="$(find husky_description)/urdf/wheel.urdf.xacro" />
+  <xacro:include filename="$(find husky_description)/urdf/decorations.urdf.xacro"/>
+  <xacro:include filename="$(find husky_description)/urdf/wheel.urdf.xacro"/>
 
   <xacro:include filename="$(find husky_description)/urdf/accessories/kinect_camera.urdf.xacro"/>
   <xacro:include filename="$(find husky_description)/urdf/accessories/sick_lms1xx_mount.urdf.xacro"/>
@@ -48,35 +50,35 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:property name="M_PI" value="3.14159"/>
 
   <!-- Base Size -->
-  <xacro:property name="base_x_size" value="0.98740000" />
-  <xacro:property name="base_y_size" value="0.57090000" />
-  <xacro:property name="base_z_size" value="0.24750000" />
+  <xacro:property name="base_x_size" value="0.98740000"/>
+  <xacro:property name="base_y_size" value="0.57090000"/>
+  <xacro:property name="base_z_size" value="0.24750000"/>
 
   <!-- Wheel Mounting Positions -->
-  <xacro:property name="wheelbase" value="0.5120" />
-  <xacro:property name="track" value="0.5708" />
-  <xacro:property name="wheel_vertical_offset" value="0.03282" />
+  <xacro:property name="wheelbase" value="0.5120"/>
+  <xacro:property name="track" value="0.5708"/>
+  <xacro:property name="wheel_vertical_offset" value="0.03282"/>
 
   <!-- Wheel Properties -->
-  <xacro:property name="wheel_length" value="0.1143" />
-  <xacro:property name="wheel_radius" value="0.1651" />
+  <xacro:property name="wheel_length" value="0.1143"/>
+  <xacro:property name="wheel_radius" value="0.1651"/>
 
   <!-- Base link is the center of the robot's bottom plate -->
   <link name="base_link">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://husky_description/meshes/base_link.dae" />
+        <mesh filename="package://husky_description/meshes/base_link.dae"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 ${base_z_size/4}" rpy="0 0 0" />
+      <origin xyz="0 0 ${base_z_size/4}" rpy="0 0 0"/>
       <geometry>
         <box size="${base_x_size} ${base_y_size} ${base_z_size/2}"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0 0 ${base_z_size*3/4}" rpy="0 0 0" />
+      <origin xyz="0 0 ${base_z_size*3/4}" rpy="0 0 0"/>
       <geometry>
         <box size="${base_x_size*4/5} ${base_y_size} ${base_z_size/2}"/>
       </geometry>
@@ -87,135 +89,132 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <link name="base_footprint"/>
 
   <joint name="base_footprint_joint" type="fixed">
-    <origin xyz="0 0 ${wheel_vertical_offset - wheel_radius}" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="base_footprint" />
+    <origin xyz="0 0 ${wheel_vertical_offset - wheel_radius}" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
   </joint>
 
   <!-- Interial link stores the robot's inertial information -->
   <link name="inertial_link">
     <inertial>
-      <mass value="46.034" />
-      <origin xyz="-0.00065 -0.085 0.062" />
-      <inertia ixx="0.6022" ixy="-0.02364" ixz="-0.1197" iyy="1.7386" iyz="-0.001544" izz="2.0296" />
+      <mass value="46.034"/>
+      <origin xyz="-0.00065 -0.085 0.062"/>
+      <inertia ixx="0.6022" ixy="-0.02364" ixz="-0.1197" iyy="1.7386" iyz="-0.001544" izz="2.0296"/>
     </inertial>
   </link>
 
   <joint name="inertial_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="inertial_link" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="inertial_link"/>
   </joint>
 
   <!-- IMU Link is the standard mounting position for the UM6 IMU.-->
   <!-- Can be modified with environment variables in /etc/ros/setup.bash -->
   <link name="imu_link"/>
   <joint name="imu_joint" type="fixed">
-    <origin xyz="$(optenv HUSKY_IMU_XYZ 0.19 0 0.149)" rpy="$(optenv HUSKY_IMU_RPY 0 -1.5708 3.1416)" />
-    <parent link="base_link" />
-    <child link="imu_link" />
+    <origin xyz="$(optenv HUSKY_IMU_XYZ 0.19 0 0.149)" rpy="$(optenv HUSKY_IMU_RPY 0 -1.5708 3.1416)"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
   </joint>
-  <gazebo reference="imu_link">
-  </gazebo>
+  <gazebo reference="imu_link"></gazebo>
 
   <!-- Husky wheel macros -->
   <xacro:husky_wheel wheel_prefix="front_left">
-    <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+    <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
   </xacro:husky_wheel>
   <xacro:husky_wheel wheel_prefix="front_right">
-    <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+    <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
   </xacro:husky_wheel>
   <xacro:husky_wheel wheel_prefix="rear_left">
-    <origin xyz="${-wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+    <origin xyz="${-wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
   </xacro:husky_wheel>
   <xacro:husky_wheel wheel_prefix="rear_right">
-    <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+    <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0"/>
   </xacro:husky_wheel>
 
-  <xacro:husky_decorate />
+  <xacro:husky_decorate/>
 
-  <!--xacro:if value="$(arg laser_enabled)">
+  <xacro:if value="$(arg laser_enabled)">
 
     <sick_lms1xx_mount prefix="base"/>
 
     <sick_lms1xx frame="base_laser" topic="scan" robot_namespace="$(arg robot_namespace)"/>
 
     <joint name="laser_mount_joint" type="fixed">
-      <origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)" />
-      <parent link="top_plate_link" />
-      <child link="base_laser_mount" />
+      <origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)"/>
+      <parent link="top_plate_link"/>
+      <child link="base_laser_mount"/>
     </joint>
 
-  </xacro:if-->
+  </xacro:if>
 
-  <xacro:if value="$(arg laser_enabled)">
-  <!-- Hokuyo Laser scanner-->
-  <property name="hokuyo_size" value="0.05"/>
+  <xacro:if value="$(arg slam_laser_enabled)">
+    <!-- Hokuyo Laser scanner-->
+    <xacro:property name="hokuyo_size" value="0.05"/>
 
- <!--hokuyo-->
+    <!--hokuyo-->
 
-  <link name="hokuyo_link">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-	<mesh filename="package://husky_description/meshes/hokuyo.dae"/>
-        <box size="${hokuyo_size} ${hokuyo_size} ${hokuyo_size}"/>
-	</geometry>
-      <material name="Blue" />
-    </visual>
-  </link>
+    <link name="hokuyo_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://husky_description/meshes/hokuyo.dae"/>
+          <box size="${hokuyo_size} ${hokuyo_size} ${hokuyo_size}"/>
+        </geometry>
+        <material name="Blue"/>
+      </visual>
+    </link>
 
-  <joint name="hokuyo_joint" type="fixed">
-    <origin xyz="${base_x_size/3} 0 ${base_z_size*1.17}" rpy="0 0 0" />
-    <parent link="base_link"/>
-    <child link="hokuyo_link" />
-  </joint>
-
-
+    <joint name="hokuyo_joint" type="fixed">
+      <origin xyz="${base_x_size/3} 0 ${base_z_size*1.17}" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="hokuyo_link"/>
+    </joint>
 
     <inertial>
-      <mass value="1e-5" />
+      <mass value="1e-5"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
     </inertial>
 
- <!--Hokuyo-->
-  <gazebo reference="hokuyo_link">
-    <material>Gazebo/Black</material>
-    <turnGravityOff>false</turnGravityOff>
-    <sensor type="ray" name="head_hokuyo_sensor">
-      <pose>$ 0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
-      <update_rate>50</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>720</samples>
-            <resolution>1</resolution>
-            <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.10</min>
-          <max>30.0</max>
-          <resolution>0.1</resolution>
-        </range>
-	 <noise>
-          <type>gaussian</type>
+    <!--Hokuyo-->
+    <gazebo reference="hokuyo_link">
+      <material>Gazebo/Black</material>
+      <turnGravityOff>false</turnGravityOff>
+      <sensor type="ray" name="head_hokuyo_sensor">
+        <pose>$ 0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>50</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-1.570796</min_angle>
+              <max_angle>1.570796</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.10</min>
+            <max>30.0</max>
+            <resolution>0.1</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
 
-          <mean>0.0</mean>
-          <stddev>0.01</stddev>
-        </noise>
-      </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>$(arg robot_namespace)/scan</topicName>
-        <frameName>hokuyo_link</frameName>
-      </plugin>
-    </sensor>
-  </gazebo>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+          <topicName>$(arg robot_namespace)/scan</topicName>
+          <frameName>hokuyo_link</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
 
-   </xacro:if>
+  </xacro:if>
 
   <xacro:if value="$(arg kinect_enabled)">
 
@@ -223,7 +222,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <origin xyz="-0.35 0 0.51" rpy="0 0 -3.14"/>
     </xacro:sensor_arch>
     <joint name="kinect_frame_joint" type="fixed">
-      <origin xyz="$(arg kinect_xyz)" rpy="$(arg kinect_rpy)" />
+      <origin xyz="$(arg kinect_xyz)" rpy="$(arg kinect_rpy)"/>
       <parent link="sensor_arch_mount_link"/>
       <child link="camera_link"/>
     </joint>
@@ -246,8 +245,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <topicName>imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
-      <rateDrift>0.005 0.005 0.005 </rateDrift>
-      <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+      <rateDrift>0.005 0.005 0.005
+      </rateDrift>
+      <rateGaussianNoise>0.005 0.005 0.005
+      </rateGaussianNoise>
       <headingDrift>0.005</headingDrift>
       <headingGaussianNoise>0.005</headingGaussianNoise>
     </plugin>
