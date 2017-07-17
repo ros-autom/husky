@@ -159,7 +159,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://mvrobot_description/meshes/hokuyo.dae"/>
+          <mesh filename="package://husky_description/meshes/hokuyo.dae"/>
           <box size="${hokuyo_size} ${hokuyo_size} ${hokuyo_size}"/>
         </geometry>
         <material name="Blue"/>
