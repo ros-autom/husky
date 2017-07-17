@@ -1,4 +1,4 @@
-image: ~/ros/husky_kinetic/src/husky/husky_navigation/maps/merge_map.pgm
+image: merge_map.pgm
 resolution: 0.050000
 origin: [0.000000, 0.000000, -nan]
 negate: 0

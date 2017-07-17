@@ -1,4 +1,4 @@
-image: ~/ros/husky_kinetic/src/husky/husky_navigation/maps/ariac_warehouse_code_mapping.pgm
+image: ariac_warehouse_code_mapping.pgm
 resolution: 0.050000
 origin: [-12.200000, -25.000000, 0.000000]
 negate: 0

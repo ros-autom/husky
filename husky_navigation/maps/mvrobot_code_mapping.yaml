@@ -1,4 +1,4 @@
-image: ~/ros/husky_kinetic/src/husky/husky_navigation/maps/mvrobot_code_mapping.pgm
+image: mvrobot_code_mapping.pgm
 resolution: 0.050000
 origin: [-13.800000, -17.000000, 0.000000]
 negate: 0
