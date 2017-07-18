@@ -35,7 +35,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="kinect_rpy" default="$(optenv HUSKY_KINECT_RPY 0 0.18 3.14)"/>
   <xacro:arg name="slam_laser_enabled" default="true"/>
 
-
   <xacro:arg name="robot_namespace" default="/"/>
   <!--xacro:arg name="urdf_extras" default="empty.urdf" /-->
 
@@ -142,9 +141,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <sick_lms1xx frame="base_laser" topic="scan" robot_namespace="$(arg robot_namespace)"/>
 
     <joint name="laser_mount_joint" type="fixed">
-      <origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)" />
-      <parent link="top_plate_link" />
-      <child link="base_laser_mount" />
+      <origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)"/>
+      <parent link="top_plate_link"/>
+      <child link="base_laser_mount"/>
     </joint>
 
   </xacro:if>
@@ -271,31 +270,22 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   </gazebo>
 
   <gazebo>
-    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-
-      <rosDebugLevel>Debug</rosDebugLevel>
-      <legacyMode>false </legacyMode>
-      <publishWheelTF>false</publishWheelTF>
-      <robotNamespace>$(arg robot_namespace)</robotNamespace>
-      <publishTf>1</publishTf>
-      <publishWheelJointState>false</publishWheelJointState>
-      <alwaysOn>true</alwaysOn>
+    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
       <updateRate>100.0</updateRate>
-      <leftJoint>front_left_wheel </leftJoint>
-      <rightJoint>front_right_wheel</rightJoint>
+      <robotNamespace>$(arg robot_namespace)</robotNamespace>
+      <leftFrontJoint>front_left_wheel</leftFrontJoint>
+      <rightFrontJoint>front_right_wheel</rightFrontJoint>
+      <leftRearJoint>rear_left_wheel</leftRearJoint>
+      <rightRearJoint>rear_right_wheel</rightRearJoint>
       <wheelSeparation>${2*base_x_size}</wheelSeparation>
       <wheelDiameter>${2*wheel_radius}</wheelDiameter>
-      <broadcastTF>1</broadcastTF>
-      <wheelTorque>30</wheelTorque>
-      <wheelAcceleration>1.8</wheelAcceleration>
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometryTopic>odom</odometryTopic>
       <robotBaseFrame>base_link</robotBaseFrame>
-
+      <torque>200</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <broadcastTF>true</broadcastTF>
     </plugin>
-
-
   </gazebo>
 
   <!--all custom includes. -->
