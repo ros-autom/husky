@@ -281,7 +281,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <wheelDiameter>${2*wheel_radius}</wheelDiameter>
       <robotBaseFrame>base_link</robotBaseFrame>
       <torque>200</torque>
-      <commandTopic>cmd_vel</commandTopic>
+      <commandTopic>$(arg robot_namespace)/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <broadcastTF>true</broadcastTF>
