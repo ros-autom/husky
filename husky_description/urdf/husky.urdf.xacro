@@ -166,7 +166,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </link>
 
     <joint name="hokuyo_joint" type="fixed">
-      <origin xyz="${base_x_size/3} 0 ${base_z_size*1.17}" rpy="0 0 0"/>
+      <!--origin xyz="${base_x_size/3} 0 ${base_z_size*1.17}" rpy="0 0 0"/-->
+      <origin xyz="${base_x_size/2.35} 0 ${base_z_size*1.15}" rpy="0 0 0"/>
       <parent link="base_link"/>
       <child link="hokuyo_link"/>
     </joint>
