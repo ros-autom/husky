@@ -11,8 +11,8 @@ NavfnROS:
 BaseGlobalPlanner:
  allow_unknown: true #false
  use_dijkstra: false #Use A* instead
- use_quadratic: true
- use_grid_path: true
+ use_quadratic: false
+ use_grid_path: false
  old_navfn_behavior: false
 
 
