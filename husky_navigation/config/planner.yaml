@@ -10,4 +10,9 @@ BaseGlobalPlanner:
  use_grid_path: false
  old_navfn_behavior: false
 
-
+EBandPlannerROS:
+  xy_goal_tolerance: 0.5 #Default 0.02
+  yaw_goal_tolerance: 6.28 #Default 1.5 . We do not care for orientation at the moment
+  Ctrl_Rate: 30.0
+  disallow_hysteresis: true
+  max_vel_lin: 1.5 #default:0.75

@@ -9,8 +9,7 @@ Panels:
         - /Sensing1
         - /Navigation1
         - /Navigation1/Exploration1
-        - /Navigation1/Exploration1/Exploration Costmap1/Status1
-        - /Navigation1/Global Plan1
+        - /Navigation1/Local Plan1
       Splitter Ratio: 0.494924009
     Tree Height: 621
   - Class: rviz/Selection
@@ -391,7 +390,7 @@ Visualization Manager:
           Radius: 0.0299999993
           Shaft Diameter: 0.100000001
           Shaft Length: 0.100000001
-          Topic: /move_base/TebLocalPlannerROS/local_plan
+          Topic: /move_base/EBandPlannerROS/local_plan
           Unreliable: false
           Value: true
       Enabled: true
@@ -418,16 +417,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 24.2858257
+      Distance: 14.5640965
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 10.6352034
-        Y: -3.60862207
-        Z: -2.19386697
+        X: 11.3458815
+        Y: 0.907288074
+        Z: -0.356703669
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Name: Current View

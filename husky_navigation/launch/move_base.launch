@@ -32,7 +32,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
   <!--<param name="base_local_planner" value="eband_local_planner/EBandPlannerROS"/> -->
   <!-- <arg name="base_local_planner" default="base_local_planner/TrajectoryPlannerROS"/> -->
   <arg name="base_global_planner" default="global_planner/GlobalPlanner" />
-  <arg name="base_local_planner" default="teb_local_planner/TebLocalPlannerROS" />
+  <arg name="base_local_planner" default="eband_local_planner/EBandPlannerROS" />
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
