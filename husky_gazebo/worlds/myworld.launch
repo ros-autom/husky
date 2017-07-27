@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="vrc_task_1">
+    <!-- place user camera -->
+
+
+    <gui>
+      <!--<camera name="user_camera">
+        <pose>-21.660200 -11.942800 14.053900 0.000000 0.443643 0.352194</pose>
+      </camera>-->
+
+      <camera name="user_camera">
+        <pose>-30 -16 12 0.000000 0.21 0.352194</pose>
+      </camera>
+
+      <!--
+      <camera name="map_camera">
+        <pose>0 0 400 0 1.5707 0</pose>-->
+        <!-- The ortho feature has been added to Gazebo on april 2015
+             it is not yet present on ROS' Gazebo version.
+        <projection_type>orthographic</projection_type>-->
+      <!--</camera>-->
+
+    </gui>
+    <scene>
+       <shadows>0</shadows>
+      <grid>false</grid>
+      <sky>
+        <clouds>
+          <speed>10</speed>
+        </clouds>
+      </sky>
+    </scene>
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <use_dynamic_moi_rescaling>true</use_dynamic_moi_rescaling>
+          <type>quick</type>
+          <iters>50</iters>
+	  <!-- Must be 1.0 ! Not any above number -->
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>110</real_time_update_rate>
+      <max_step_size>0.0091</max_step_size>
+    </physics>
+
+    <!-- Light Source -->
+    <light type="directional" name="sun">
+      <cast_shadows>0</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.9 0.9 0.9 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.2 -0.9</direction>
+    </light>
+
+    <include>
+      <uri>model://kedek_heightmap</uri>
+    </include>
+
+ </world>
+</sdf>
