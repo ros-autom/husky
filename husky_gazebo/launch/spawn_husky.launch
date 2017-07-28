@@ -108,6 +108,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <node name="spawn_husky_model" pkg="gazebo_ros" type="spawn_model"
         args="-x $(arg x)
               -y $(arg y)
+              -z 30
               -Y $(arg yaw)
               -unpause
               -urdf

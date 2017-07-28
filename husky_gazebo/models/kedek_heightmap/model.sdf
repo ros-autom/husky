@@ -6,7 +6,7 @@
       <collision name="collision">
         <geometry>
           <heightmap>
-            <uri>model://kedek_heightmap/materials/textures/newone.png</uri>
+            <uri>file://kedek_heightmap/materials/textures/newone.png</uri>
             <size>200 200 118</size>
             <pos>0 0 0</pos>
           </heightmap>
@@ -39,7 +39,7 @@
               <min_height>30</min_height>
               <fade_dist>10</fade_dist>
             </blend>
-            <uri>model://kedek_heightmap/materials/textures/newone.png</uri>
+            <uri>file://kedek_heightmap/materials/textures/newone.png</uri>
             <size>200 200 118</size>
             <pos>0 0 0</pos>
           </heightmap>
