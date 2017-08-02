@@ -46,5 +46,5 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="slam_laser_enabled" value="$(arg slam_laser_enabled)"/>
 
   </include>
-<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" />
+
 </launch>
