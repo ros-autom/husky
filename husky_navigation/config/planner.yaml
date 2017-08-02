@@ -26,3 +26,9 @@ EBandPlannerROS:
   max_vel_lin: 0.75 #default:0.75 ,1.5
 
 #TebLocalPlannerROS:
+#  inflation_dist: 0.3
+#  is_footprint_dynamic: true
+#  max_vel_x: 2.0
+#  obstacle_poses_affected: 15
+#  xy_goal_tolerance: 0.5
+#  yaw_goal_tolerance: 3.18
