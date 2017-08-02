@@ -1,4 +1,10 @@
+#Move_base Parametres
 controller_frequency:       5.0
+planner_frequency: 2.0
+oscillation_distance: 0.2
+planner_patience: 3
+controller_patience: 3
+conservative_reset_dist: 2.0
 recovery_behaviour_enabled: true
 
 #Global Planner Parametres
@@ -10,6 +16,8 @@ BaseGlobalPlanner:
  use_grid_path: false
  old_navfn_behavior: false
 
+
+#Local planners
 EBandPlannerROS:
   xy_goal_tolerance: 0.02 #Default 0.02 , 0.5
   yaw_goal_tolerance: 6.28 #Default 1.5 . We do not care for orientation at the moment
