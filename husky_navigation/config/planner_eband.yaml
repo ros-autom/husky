@@ -19,9 +19,9 @@ BaseGlobalPlanner:
 
 #Local planners
 EBandPlannerROS:
-  xy_goal_tolerance: 0.02 #Default 0.02 , 0.5
+  xy_goal_tolerance: 0.5 #Default 0.02 , 0.5
   yaw_goal_tolerance: 6.28 #Default 1.5 . We do not care for orientation at the moment
   Ctrl_Rate: 10.0 #30
   disallow_hysteresis: true
-  max_vel_lin: 0.75 #default:0.75 ,1.5
+  max_vel_lin: 1.5 #default:0.75 ,1.5
 
