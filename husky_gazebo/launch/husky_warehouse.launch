@@ -45,6 +45,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="laser_enabled" value="$(arg laser_enabled)"/>
     <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
     <arg name="slam_laser_enabled" value="$(arg slam_laser_enabled)"/>
+    <arg name="robot_namespace" value="robot_1"/>
 
   </include>
 

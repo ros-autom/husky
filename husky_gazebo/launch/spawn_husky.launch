@@ -47,7 +47,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
         <arg name="laser_enabled" default="$(arg laser_enabled)"/>
         <arg name="kinect_enabled" default="$(arg kinect_enabled)"/>
         <arg name="slam_laser_enabled" default="$(arg slam_laser_enabled)"/>
-
+        <arg name="robot_namespace" value="$(arg robot_namespace)"/>
         <arg name="urdf_extras" default="$(arg urdf_extras)"/>
       </include>
 
