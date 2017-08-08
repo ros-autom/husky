@@ -208,7 +208,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
           </noise>
         </ray>
         <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-          <topicName>$(arg robot_namespace)/scan</topicName>
+          <topicName>scan</topicName>
           <frameName>hokuyo_link</frameName>
         </plugin>
       </sensor>
@@ -282,7 +282,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <wheelDiameter>${2*wheel_radius}</wheelDiameter>
       <robotBaseFrame>base_link</robotBaseFrame>
       <torque>200</torque>
-      <commandTopic>$(arg robot_namespace)/cmd_vel</commandTopic>
+      <commandTopic>/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <broadcastTF>true</broadcastTF>
