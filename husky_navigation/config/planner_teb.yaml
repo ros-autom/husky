@@ -21,7 +21,9 @@ BaseGlobalPlanner:
 
 TebLocalPlannerROS:
   inflation_dist: 0.3
-  dt_ref: 0.5
+  dt_ref: 1.0 #default 0.3
+  dt_hysterisis: 0.5 #default 0.1
+  no_outer_iterations: 5
   global_plan_viapoint_sep: 1.0
   exact_arc_length: true
   dt_hysteresis: 0.2 
@@ -30,5 +32,12 @@ TebLocalPlannerROS:
   obstacle_poses_affected: 15
   xy_goal_tolerance: 0.5
   yaw_goal_tolerance: 3.14
-  penalty_epsilon: 0.5
+  acc_lim_theta: 0.31
+  acc_lim_x: 0.31
+  max_vel_x_backwards: 0.31
+  penalty_epsilon: 0.3 #has to be lower than acc_lim_theta,acc_lim_x,max_vel_x_backwards
+
+
+
+
 
