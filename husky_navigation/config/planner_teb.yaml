@@ -1,10 +1,10 @@
 #Move_base Parametres
 controller_frequency:       5.0
-planner_frequency: 2.0
+planner_frequency: 0.5
 oscillation_distance: 0.2
 planner_patience: 3
 controller_patience: 3
-conservative_reset_dist: 2.0
+conservative_reset_dist: 0.5
 recovery_behaviour_enabled: true
 
 #Global Planner Parametres
@@ -21,8 +21,14 @@ BaseGlobalPlanner:
 
 TebLocalPlannerROS:
   inflation_dist: 0.3
-  is_footprint_dynamic: true
-  max_vel_x: 2.0
+  dt_ref: 0.5
+  global_plan_viapoint_sep: 1.0
+  exact_arc_length: true
+  dt_hysteresis: 0.2 
+  max_vel_x: 1.0
+  max_vel_theta: 1.0 
   obstacle_poses_affected: 15
   xy_goal_tolerance: 0.5
-  yaw_goal_tolerance: 3.18
+  yaw_goal_tolerance: 3.14
+  penalty_epsilon: 0.5
+
