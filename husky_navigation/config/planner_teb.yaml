@@ -33,11 +33,11 @@ TebLocalPlannerROS:
   max_vel_x: 1.0
   max_vel_theta: 1.0 
   obstacle_poses_affected: 15
-  xy_goal_tolerance: 0.5
-  yaw_goal_tolerance: 3.14
+  xy_goal_tolerance: 0.7
+  yaw_goal_tolerance: 1.5
   acc_lim_theta: 0.31
   acc_lim_x: 0.31
-  max_vel_x_backwards: 0.31
+  max_vel_x_backwards: 0.5
   penalty_epsilon: 0.3 #has to be lower than acc_lim_theta,acc_lim_x,max_vel_x_backwards
 
 
