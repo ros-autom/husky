@@ -1,6 +1,6 @@
 #Move_base Parametres
 controller_frequency:       5.0
-planner_frequency: 0.5
+planner_frequency: 1.0
 oscillation_distance: 0.2
 planner_patience: 3
 controller_patience: 3
@@ -11,14 +11,17 @@ recovery_behaviour_enabled: true
 
 BaseGlobalPlanner:
  allow_unknown: true #false
- use_dijkstra: false #Use A* instead
- use_quadratic: false
+ use_dijkstra: true #Use A* instead
+ use_quadratic: true
  use_grid_path: false
  old_navfn_behavior: false
+ lethal_cost: 255
+ neutral_cost: 66
+ cost_factor: 0.55
+ 
 
 
 #Local planner
-
 TebLocalPlannerROS:
   inflation_dist: 0.3
   dt_ref: 1.0 #default 0.3
@@ -36,8 +39,5 @@ TebLocalPlannerROS:
   acc_lim_x: 0.31
   max_vel_x_backwards: 0.31
   penalty_epsilon: 0.3 #has to be lower than acc_lim_theta,acc_lim_x,max_vel_x_backwards
-
-
-
 
 
