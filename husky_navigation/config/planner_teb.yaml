@@ -39,5 +39,6 @@ TebLocalPlannerROS:
   acc_lim_x: 0.31
   max_vel_x_backwards: 0.5
   penalty_epsilon: 0.3 #has to be lower than acc_lim_theta,acc_lim_x,max_vel_x_backwards
+  weight_kinematics_forward_drive: 50.0
 
 
