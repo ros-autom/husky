@@ -1,6 +1,6 @@
 Husky Gazebo
 ======
 
-Copy the model file into the /home/"user name"/.gazebo 
+Copy the model folder into the /home/"user name"/.gazebo 
 
 
