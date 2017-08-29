@@ -312,7 +312,7 @@ Visualization Manager:
               Draw Behind: true
               Enabled: true
               Name: Exploration Costmap
-              Topic: /public/robot/map
+              Topic: /map
               Unreliable: false
               Use Timestamp: false
               Value: true
