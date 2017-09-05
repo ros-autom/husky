@@ -13,7 +13,7 @@ NavfnROS:
   allow_none: true
   allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.
   default_tolerance: 0.1 # A tolerance on the goal point for the planner.
-  
+
 
 TrajectoryPlannerROS:
   # Robot Configuration Parameters
@@ -54,7 +54,7 @@ TrajectoryPlannerROS:
   heading_scoring_timestep: 0.8   #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)
   dwa: true #Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout
   simple_attractor: false
-  publish_cost_grid_pc: true  
+  publish_cost_grid_pc: true
 
   # Oscillation Prevention Parameters
   oscillation_reset_dist: 0.25 #How far the robot must travel in meters before oscillation flags are reset (double, default: 0.05)
@@ -79,8 +79,12 @@ BaseGlobalPlanner:
 
 #Local planner
 TebLocalPlannerROS:
+  max_vel_x: 0.8
+  max_vel_theta: 1
   xy_goal_tolerance: 0.7
   yaw_goal_tolerance: 1.5
+
   weight_kinematics_forward_drive: 1000.0
+  weight_kinematics_turning_radius: 1000.0
   feasibility_check_no_poses: 2
   max_vel_x: 0.5
