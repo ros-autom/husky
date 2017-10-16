@@ -1,0 +1,725 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- place user camera -->
+    <gui>
+      <!--<camera name="user_camera">
+      <pose>-21.660200 -11.942800 14.053900 0.000000 0.443643 0.352194</pose>
+    </camera>-->
+    <camera name="user_camera">
+      <pose>-30 -16 12 0.000000 0.21 0.352194</pose>
+    </camera>
+    <!--      <camera name="map_camera">
+    <pose>0 0 400 0 1.5707 0</pose>-->
+      <!-- The ortho feature has been added to Gazebo on april 2015             it is not yet present on ROS' Gazebo version.        <projection_type>orthographic</projection_type>-->
+      <!--</camera>-->
+    </gui>
+    <scene>
+      <shadows>0</shadows>
+      <grid>false</grid>
+      <sky>
+        <clouds>
+          <speed>10</speed>
+        </clouds>
+      </sky>
+    </scene>
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <use_dynamic_moi_rescaling>true</use_dynamic_moi_rescaling>
+          <type>quick</type>
+          <iters>50</iters>
+          <!-- Must be 1.0 ! Not any above number -->
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>110</real_time_update_rate>
+      <max_step_size>0.0091</max_step_size>
+    </physics>
+    <!-- Light Source -->
+    <light type="directional" name="sun">
+      <cast_shadows>0</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.9 0.9 0.9 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.2 -0.9</direction>
+    </light>
+
+
+
+  <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  <include>
+      <uri>model://asphalt_plane</uri>
+      <pose>-13 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://asphalt_plane</uri>
+    </include>
+
+    <!--Wall-->
+<include>
+      <name>Jersley_barrier 1</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>8 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 2</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>4 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 3</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>0 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 4</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-4 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 5</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-8 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 6</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-12 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 7</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-16 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 8</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-20 10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 9</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-21.73 10.411 0 0 0 0</pose>
+    </include>
+    <!-- Horizontal-->
+    <include>
+      <name>Jersley_barrier 10</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-23.4 8 0 0 0 -1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 11</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-23.4 4 0 0 0 -1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 12</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-23.4 0 0 0 0 -1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 13</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-23.4 -4 0 0 0 1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 14</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-23.4 -8 0 0 0 1.570796327</pose>
+    </include>
+    <!--vertical-->
+    <include>
+      <name>Jersley_barrier 15</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>8 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 16</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>4 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 17</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>0 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 18</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-4 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 19</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-8 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 20</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-12 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 21</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-16 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 22</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-20 -10.411 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 23</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-21.73 -10.411 0 0 0 0</pose>
+    </include>
+    <!-- Horizontal-->
+    <include>
+      <name>Jersley_barrier 24</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>10.4 8 0 0 0 1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 25</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>10.4 4 0 0 0 1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 25</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>10.4 0 0 0 0 1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 26</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>10.4 -4 0 0 0 1.570796327</pose>
+    </include>
+    <include>
+      <name>Jersley_barrier 27</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>10.4 -8 0 0 0 1.570796327</pose>
+    </include>
+ <!--Door-->
+
+    <include>
+      <name>door</name>
+      <uri>model://door2</uri>
+      <pose> 9.699201 0 0.741822  0 0 0</pose>
+    </include>
+
+    <!-- SHELVES -->
+   <include>
+      <name>shelves 1</name>
+      <uri>model://shelves_high2</uri>
+      <pose>1 3.4 0   0 0 0</pose>
+    </include>
+    <include>
+      <name>shelves 2</name>
+      <uri>model://shelves_high2</uri>
+      <pose>-4.13394 3.4 0 0 -0 0</pose>
+    </include>
+    <include>
+      <name>shelves 3</name>
+      <uri>model://shelves_high2</uri>
+      <pose>1 -1.5 0   0 0 0</pose>
+    </include>
+    <include>
+      <name>shelves 4</name>
+      <uri>model://shelves_high2</uri>
+      <pose>-4.133 -1.500 0  0 0 0</pose>
+    </include>
+    <include>
+      <name>shelves 6</name>
+      <uri>model://shelves_high2</uri>
+      <pose>-4.133 -6.400 0   0 0 0</pose>
+    </include>
+
+    <include>
+      <name>shelves 5</name>
+      <uri>model://shelves_high2</uri>
+      <pose>1 -6.4 0   0 0 0</pose>
+    </include>
+
+    <!--ladders-->
+    <include>
+      <name>ladder1</name>
+      <uri>model://ladder_60deg_1rails</uri>
+      <pose>-4 6.21 0 0 0 -3.14</pose>
+    </include>
+
+    <include>
+      <name>ladder2</name>
+      <uri>model://ladder_60deg_1rails</uri>
+      <pose>-1 6.21 0 0 0 -3.14</pose>
+    </include>
+
+    <!--Parking spot-->
+    <include>
+      <name>parking</name>
+      <uri>model://frc2016_sallyport</uri>
+      <pose>-16 9.68 0 0 0 -3.14</pose>
+    </include>
+    <!--Dumpster-->
+    <include>
+      <uri>model://dumpster</uri>
+      <pose>-22.5 7.19 0 0 0 1.55</pose>
+    </include>
+
+
+    <!-- =================================
+            Ground level
+         ================================= -->
+
+    <!-- PALLET 1 -->
+    <include>
+      <name>pallet 1 box</name>
+      <uri>model://big_box3</uri>
+      <pose>1.48626 3.390705 0.760253 0 0.000143 -1.57317</pose>
+    </include>
+
+
+    <!-- PALLET 4 -->
+    <include>
+      <name>pallet 4 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-2.37439 3.440964 0.776474 0 0 -1.59804</pose>
+    </include>
+
+
+    <!-- PALLET 7 -->
+    <include>
+      <name>pallet 7 box</name>
+      <uri>model://big_box4</uri>
+      <pose>2.61297 3.464591 0.774725 0 0 -1.59992</pose>
+    </include>
+
+
+    <!-- PALLET 10 -->
+    <include>
+      <name>pallet 10 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-3.45548 3.349857 0.774725 0 0 -1.56894</pose>
+    </include>
+
+
+    <!-- PALLET 11 -->
+    <include>
+      <name>pallet 11 box</name>
+      <uri>model://big_box4</uri>
+      <pose>-4.67439 3.440964 0.776474 0 0 -1.59804</pose>
+    </include>
+
+
+    <!-- PALLET 12 -->
+    <include>
+      <name>pallet 12 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-5.95548 3.349857 0.774725 0 0 -1.56894</pose>
+    </include>
+
+
+
+
+    <!-- =================================
+            1st level
+         ================================= -->
+
+    <!-- PALLET 2 -->
+    <include>
+      <name>pallet 2 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-3.25548 3.349857 2.3397 0 0 -1.56894</pose>
+    </include>
+
+
+
+    <!-- PALLET 5 - SMALL BOXES -->
+    <include>
+      <name>pallet 5 multi boxes</name>
+      <uri>model://pallet_full</uri>
+      <pose>0.334986 3.337637 1.63184 0 0 -1.57575</pose>
+      <static>true</static>
+    </include>
+
+    <!-- PALLET 17 - SMALL BOXES -->
+    <include>
+      <name>pallet 17 multi boxes</name>
+      <uri>model://pallet_full</uri>
+      <pose>0.334986 3.337637 2.31 0 0 -1.57575</pose>
+      <static>true</static>
+    </include>
+
+    <!-- PALLET 8 -->
+    <include>
+      <name>pallet 8 box</name>
+      <uri>model://big_box4</uri>
+      <pose>2.56918 3.321158 2.35696 0 0 -1.56652</pose>
+    </include>
+
+
+    <!-- PALLET 9 -->
+    <include>
+      <name>pallet 9 box</name>
+      <uri>model://big_box4</uri>
+      <pose>-2.30257 2.987644 2.35696 0 0 -1.57937</pose>
+    </include>
+
+
+    <!-- PALLET 13 -->
+    <include>
+      <name>pallet 13 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-4.67439 3.440964 2.35696 0 0 -1.59804</pose>
+    </include>
+
+
+    <!-- PALLET 14 -->
+    <include>
+      <name>pallet 14 box</name>
+      <uri>model://big_box4</uri>
+      <pose>-5.95548 3.349857 2.35696 0 0 -1.56894</pose>
+    </include>
+
+
+    <!-- PALLET 19 -->
+    <include>
+      <name>pallet 19 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-0.8 3.337637 2.3397 0 0 -1.56894</pose>
+    </include>
+
+
+
+    <!-- =================================
+            2nd level
+         ================================= -->
+
+    <!-- PALLET 6 - SMALL BOXES -->
+    <include>
+      <name>pallet 6 multi boxes</name>
+      <uri>model://pallet_full</uri>
+      <pose>-2.18966 3.351916 3.27046 0 0 -1.58092</pose>
+      <static>true</static>
+    </include>
+
+    <!-- PALLET 15 - SMALL BOXES -->
+    <include>
+      <name>pallet 15 multi boxes</name>
+      <uri>model://pallet_full</uri>
+      <pose>-4.68966 3.351916 3.27046 0 0 -1.58092</pose>
+      <static>true</static>
+    </include>
+
+    <!-- PALLET 16 - SMALL BOXES -->
+    <include>
+      <name>pallet 16 multi boxes</name>
+      <uri>model://pallet_full</uri>
+      <pose>-5.88966 3.351916 3.27046 0 0 -1.58092</pose>
+      <static>true</static>
+    </include>
+
+
+    <!-- PALLET 20 -->
+    <include>
+      <name>pallet 20 box</name>
+      <uri>model://big_box4</uri>
+      <pose>-3.25548 3.349857 3.97286 0 0 -1.56894</pose>
+    </include>
+
+    <!-- PALLET 21 -->
+    <include>
+      <name>pallet 21 box</name>
+      <uri>model://big_box3</uri>
+      <pose>2.56918 3.321158 3.97286 0 0 -1.56652</pose>
+    </include>
+
+
+    <!-- PALLET 22 -->
+    <include>
+      <name>pallet 22 box</name>
+      <uri>model://big_box4</uri>
+      <pose>-0.8 3.337637 3.97286 0 0 -1.56894</pose>
+    </include>
+
+
+
+    <!-- =================================
+            Shelves B - Ground level
+         ================================= -->
+
+    <!-- PALLET 1 -->
+    <include>
+      <name>pallet B-0-1 box</name>
+      <uri>model://big_box3</uri>
+      <pose>1.48626 -1.5 0.760253 0 0.000143 1.57317</pose>
+    </include>
+
+
+    <!-- PALLET 7 -->
+    <include>
+      <name>pallet B-0-2 box</name>
+      <uri>model://big_box4</uri>
+      <pose>2.61297 -1.5 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+  <!-- PALLET 23 -->
+    <include>
+      <name>pallet B-2-3 box</name>
+      <uri>model://big_box3</uri>
+      <pose>1.48626 -6.4 0.760253 0 0.000143 1.57317</pose>
+    </include>
+
+
+    <!-- PALLET 24 -->
+    <include>
+      <name>pallet B-2-4 box</name>
+      <uri>model://big_box4</uri>
+      <pose>2.61297 -6.4 0.774725 0 0 1.59992</pose>
+    </include>
+
+    <!-- PALLET 25 -->
+    <include>
+      <name>pallet 25 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-0.8 -1.5 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+<!-- PALLET 26 -->
+    <include>
+      <name>pallet 26 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-0.8 3.4 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+    <!-- PALLET 27 -->
+    <include>
+      <name>pallet 27 box</name>
+      <uri>model://big_box3</uri>
+      <pose>-0.8 -6.4 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+ <!-- PALLET 28 -->
+    <include>
+      <name>pallet 28 box</name>
+      <uri>model://big_box3</uri>
+      <pose>0.3 -6.4 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+<!-- PALLET 29 -->
+    <include>
+      <name>pallet 29 box</name>
+      <uri>model://big_box3</uri>
+      <pose>0.3 -1.5 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+<!-- PALLET 30 -->
+    <include>
+      <name>pallet 30 box</name>
+      <uri>model://big_box3</uri>
+      <pose>0.3 3.4 0.774725 0 0 1.59992</pose>
+    </include>
+
+
+
+    <include>
+  <name>fanta_box 1</name>
+  <uri>model://fanta_box</uri>
+  <pose>0.18 -1.404 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>fanta_box 2</name>
+  <uri>model://fanta_box</uri>
+  <pose>-2.82 -1.52 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>fanta_box 3</name>
+  <uri>model://fanta_box</uri>
+  <pose>-5.36 -1.5 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>qr_box 1</name>
+  <uri>model://qr_box</uri>
+  <pose>2.35 -6.57 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>qr_box 2</name>
+  <uri>model://qr_box</uri>
+  <pose>0.1 -6.57 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>lays_box 1</name>
+  <uri>model://lays_box</uri>
+  <pose>-2.73 -6.57 2.18  0 0 0</pose>
+</include>
+<include>
+  <name>lays_box 2</name>
+  <uri>model://lays_box</uri>
+  <pose>-5.32 -6.57 2.18  0 0 0</pose>
+
+</include>
+ <!--PALLET 13-->
+    <include>
+      <name>coca_cola_box 1</name>
+      <uri>model://coca_cola_box</uri>
+      <pose>-5.36 -1.5 0.1  0 0 0</pose>
+    </include>
+
+    <!--PALLET 14-->
+    <include>
+      <name>coca_cola_box 2</name>
+      <uri>model://coca_cola_box</uri>
+      <pose>-2.82 -1.5 0.1  0 0 0</pose>
+    </include>
+
+
+    <!--PALLET 15-->
+    <include>
+      <name>coca_cola_box 3</name>
+      <uri>model://coca_cola_box</uri>
+      <pose>-5.32 -6.57 0.1  0 0 0</pose>
+    </include>
+
+    <!--PALLET 16-->
+    <include>
+      <name>coca_cola_box 4</name>
+      <uri>model://coca_cola_box</uri>
+      <pose>-2.73 -6.57 0.1  0 0 0</pose>
+    </include>
+
+
+    <!--PALLET 17-->
+    <include>
+      <name>coca_cola_box 5</name>
+      <uri>model://coca_cola_box</uri>
+      <pose>-10.5 3.35 0.1  0 0 0</pose>
+    </include>
+
+
+        <!--PALLET 18-->
+        <include>
+          <name>fanta_box 6</name>
+          <uri>model://coca_cola_box</uri>
+          <pose>-15 3.35 0.1  0 0 0</pose>
+        </include>
+
+        <!--PALLET 19-->
+        <include>
+          <name>fanta_box 7</name>
+          <uri>model://fanta_box</uri>
+          <pose>-19.5 3.35 0.1  0 0 0</pose>
+        </include>
+
+
+        <!--PALLET 20-->
+        <include>
+          <name>coca_cola 8a</name>
+          <uri>model://coca_cola_box</uri>
+          <pose>-10.5 -1.5 0.1  0 0 0</pose>
+        </include>
+
+        <include>
+          <name>fanta_box 9a</name>
+          <uri>model://fanta_box</uri>
+          <pose>-15 -1.5 0.1  0 0 0</pose>
+        </include>
+
+        <include>
+          <name>qr_box 10a</name>
+          <uri>model://qr_box</uri>
+          <pose>-19.5 -1.5 0.1  0 0 0</pose>
+        </include>
+
+
+        <include>
+          <name>lays_box 11a</name>
+          <uri>model://lays_box</uri>
+          <pose>-10.5 -6.5 0.1  0 0 0</pose>
+        </include>
+
+        <include>
+          <name>lays_box 12a</name>
+          <uri>model://lays_box</uri>
+          <pose>-15 -6.5 0.1  0 0 0</pose>
+        </include>
+
+        <include>
+          <name>qr_box 13</name>
+          <uri>model://qr_box</uri>
+          <pose>-19.5 -6.5 0.1  0 0 0</pose>
+        </include>
+
+
+
+    <!-- =================================
+            Shelves B - 1st level
+         ================================= -->
+
+    <!-- PALLET 1 -->
+    <include>
+      <name>pallet B-1-1 box</name>
+      <uri>model://big_box3</uri>
+      <pose>1.6 -1.5 2.30 0 0.000143 1.57317</pose>
+      <static>true</static>
+    </include>
+
+
+    <!-- PALLET 7 -->
+    <include>
+      <name>pallet B-1-2 box</name>
+      <uri>model://big_box3</uri>
+      <pose>2.9 -1.5 2.30 0 0 1.59992</pose>
+      <static>true</static>
+    </include>
+
+
+    <!-- =================================
+            Shelves B - 2st level
+         ================================= -->
+
+    <!-- PALLET 1 -->
+    <include>
+      <name>pallet B-2-1 box</name>
+      <uri>model://big_box4</uri>
+      <pose>1.6 -1.5 3.97 0 0.000143 1.57317</pose>
+      <static>true</static>
+    </include>
+
+
+    <!-- PALLET 7 -->
+    <include>
+      <name>pallet B-2-2 box</name>
+      <uri>model://big_box3</uri>
+      <pose>2.9 -1.5 3.97 0 0 1.59992</pose>
+      <static>true</static>
+    </include>
+
+
+
+
+
+
+  </world>
+</sdf>
