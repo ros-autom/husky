@@ -37,5 +37,4 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <!--- Run Move Base -->
   <include file="$(find husky_navigation)/launch/move_base.launch"/>
-<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" />
 </launch>
