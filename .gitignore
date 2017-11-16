@@ -2,5 +2,5 @@
 
 # Catkin custom files
 CATKIN_IGNORE
-
+husky_navigation/maps/test_map.pgm
 *.pyc
