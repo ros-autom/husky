@@ -151,19 +151,168 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        CocaCola1:
+          Value: true
+        CocaCola2:
+          Value: true
+        CocaCola3:
+          Value: true
+        CocaCola4:
+          Value: true
+        CocaCola5:
+          Value: true
+        CocaCola6:
+          Value: true
+        CocaCola7:
+          Value: true
+        Fanta1:
+          Value: true
+        Fanta2:
+          Value: true
+        Fanta3:
+          Value: true
+        Fanta4:
+          Value: true
+        Fanta5:
+          Value: true
+        Lays1:
+          Value: true
+        Lays2:
+          Value: true
+        Lays3:
+          Value: true
+        Lays4:
+          Value: true
+        Qr1:
+          Value: true
+        Qr2:
+          Value: true
+        Qr3:
+          Value: true
+        Qr4:
+          Value: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        camera_frame_optical:
+          Value: true
+        camera_link:
+          Value: true
+        front_bumper_link:
+          Value: true
+        front_left_wheel_link:
+          Value: true
+        front_right_wheel_link:
+          Value: true
+        hokuyo_link:
+          Value: true
+        imu_link:
+          Value: true
+        inertial_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        rear_bumper_link:
+          Value: true
+        rear_left_wheel_link:
+          Value: true
+        rear_right_wheel_link:
+          Value: true
+        sensor_arch_mount_link:
+          Value: true
+        top_chassis_link:
+          Value: true
+        top_plate_link:
+          Value: true
+        user_rail_link:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            CocaCola1:
+              {}
+            CocaCola2:
+              {}
+            CocaCola3:
+              {}
+            CocaCola4:
+              {}
+            CocaCola5:
+              {}
+            CocaCola6:
+              {}
+            CocaCola7:
+              {}
+            Fanta1:
+              {}
+            Fanta2:
+              {}
+            Fanta3:
+              {}
+            Fanta4:
+              {}
+            Fanta5:
+              {}
+            Lays1:
+              {}
+            Lays2:
+              {}
+            Lays3:
+              {}
+            Lays4:
+              {}
+            Qr1:
+              {}
+            Qr2:
+              {}
+            Qr3:
+              {}
+            Qr4:
+              {}
+            base_link:
+              base_footprint:
+                {}
+              front_bumper_link:
+                {}
+              front_left_wheel_link:
+                {}
+              front_right_wheel_link:
+                {}
+              hokuyo_link:
+                {}
+              imu_link:
+                {}
+              inertial_link:
+                {}
+              rear_bumper_link:
+                {}
+              rear_left_wheel_link:
+                {}
+              rear_right_wheel_link:
+                {}
+              top_chassis_link:
+                {}
+              top_plate_link:
+                sensor_arch_mount_link:
+                  camera_link:
+                    camera_frame_optical:
+                      {}
+              user_rail_link:
+                {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
       Enabled: true
