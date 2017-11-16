@@ -32,7 +32,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 
 <launch>
 
-  <arg name="no_static_map" default="false"/>
+  <arg name="no_static_map" default="yes"/>
 
 
   <arg name="base_global_planner" default="navfn/NavfnROS" />
